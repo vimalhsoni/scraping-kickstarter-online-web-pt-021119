@@ -1,5 +1,6 @@
 # require libraries/modules here
 require 'nokogiri'
+require 'pry'
 
 # projects: kickstarter.css("li.project.grid_4")
 # title: project.css("h2.bbcard_name strong a").text
@@ -11,6 +12,7 @@ def create_project_hash
 
   projects = {}
 
+binding.pry
   kickstarter.css("li.project.grid_4").each do |project|
     title = project.css("h2.bbcard_name strong a").text
     projects[title.to_sym] = {
